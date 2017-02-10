@@ -38,4 +38,10 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild would have a constat O(1) complexity as we add a child to an 
+ end of an array without re arraning other array items.
+
+ Contains would have a linear O(n) complexity as we iterate through each child
+ and possbilty visiting all nodes.
+
  */

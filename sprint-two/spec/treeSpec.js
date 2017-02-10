@@ -12,8 +12,10 @@ describe('tree', function() {
   });
 
   it('should add children to the tree', function() {
+    console.log('----------------------------------');
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
+    console.log('----------------------------------');
   });
 
   it('should return true for a value that the tree contains', function() {

@@ -24,11 +24,13 @@ describe('linkedList', function() {
   });
 
   it('should remove the head from the list when removeHead is called', function() {
+    console.log("-------------------------------------------");
     linkedList.addToTail(4);
     linkedList.addToTail(5);
     expect(linkedList.head.value).to.equal(4);
     linkedList.removeHead();
     expect(linkedList.head.value).to.equal(5);
+    console.log("-------------------------------------------");
   });
 
   it('should return the value of the former head when removeHead is called', function() {

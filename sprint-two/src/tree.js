@@ -20,15 +20,15 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   var isTrue = false;
-  if(this.value === target){
+  if (this.value === target) {
     isTrue = true;
-  } else {
-    for (var i = 0; i < this.children.length; i++) {
-      if ( this.children[i].contains(target) ) {
-        isTrue = true;
-      }
+  }
+  for (var i = 0; i < this.children.length; i++) {
+    if ( this.children[i].contains(target) ) {
+      isTrue = true;
     }
   }
+  
   return isTrue;
 };
 

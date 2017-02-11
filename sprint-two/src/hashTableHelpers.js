@@ -15,14 +15,18 @@ var LimitedArray = function(limit) {
   var storage = [];
 
   var limitedArray = {};
+  // returns a bucket at index
   limitedArray.get = function(index) {
     checkLimit(index);
     return storage[index];
   };
+  // push a tuple into the bucket by index
   limitedArray.set = function(index, value) {
+    // debugger;
     checkLimit(index);
     storage[index] = value;
   };
+  // iterates over storate and a callback on a bucket
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
       callback(storage[i], i, storage);

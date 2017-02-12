@@ -24,4 +24,10 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+
+  it('should not accept a number as input', function() {
+    set.add(3);
+    expect(set.contains(3)).to.equal(false);
+  });
+
 });

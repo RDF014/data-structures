@@ -7,16 +7,20 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this._storage.push(item);
+  if (typeof item === 'string') {
+    this._storage.push(item);
+  }
 };
 
 setPrototype.contains = function(item) {
   var isTrue = false;
+
   this._storage.forEach(function (value) {
     if (value === item) {
       isTrue = true;
     }
   });
+
   return isTrue;
 };
 

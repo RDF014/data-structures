@@ -24,11 +24,12 @@ HashTable.prototype.insert = function(k, v) {
   if (!replace) {
     this._storage.get(index).push(tuple);
   }
+  var bucket = this._storage.get(index);
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  var bucket = this._storage.get(index);
+  var bucket = this._storage.get(index) || [];
   if (bucket.length > 0) {
     var val = this._storage.get(index)[0][1];
     bucket.forEach(function(valu) {
@@ -44,9 +45,11 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.each(function(valu, i) {
-    if (i === index) {
-      valu.splice(0, 1);
+  var bucket = this._storage.get(index) || [];
+
+  bucket.forEach(function(valu, i) {
+    if (valu[0] === k) {
+      valu.splice(i, 1);
     }
   });
 };

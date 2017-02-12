@@ -37,6 +37,13 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Steven')).to.equal(undefined);
   });
 
+  it('should not remove all values in the bucket', function() {
+    hashTable.insert('Steven', 'Spielberg');
+    hashTable.insert('Bob', 'Loblaw');
+    hashTable.remove('Bob');
+    expect(hashTable.retrieve('Steven')).to.equal('Spielberg');
+  });
+
   it('should handle hash function collisions', function() {
     var v1 = 'val1';
     var v2 = 'val2';

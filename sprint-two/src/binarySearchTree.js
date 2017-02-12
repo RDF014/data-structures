@@ -10,8 +10,6 @@ var BinarySearchTree = function(value) {
   
 };
 
-
-
 var binaryTreeMethods = {
   
   insert: function(value) {
@@ -21,7 +19,7 @@ var binaryTreeMethods = {
       } else {
         this.right.insert(value);
       }
-    } else {
+    } else if (value < this.value) {
       if (this.left === null) {
         this.left = BinarySearchTree(value);
       } else {
@@ -37,11 +35,11 @@ var binaryTreeMethods = {
       isTrue = true;
     } 
 
-    if (value > topValue && this.right !== null) {
+    if (value > topValue && this.right) {
       if (this.right.contains(value)) {
         isTrue = true;
       }
-    } else if (value < topValue && this.left !== null) {
+    } else if (value < topValue && this.left) {
       if (this.left.contains(value)) {
         isTrue = true;
       }
@@ -51,10 +49,10 @@ var binaryTreeMethods = {
   depthFirstLog: function(cb) {
     cb(this.value);
 
-    if (this.right !== null) {
+    if (this.right) {
       this.right.depthFirstLog(cb);
     }
-    if (this.left !== null) {
+    if (this.left) {
       this.left.depthFirstLog(cb);
     }
 

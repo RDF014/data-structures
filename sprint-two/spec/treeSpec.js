@@ -41,4 +41,13 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should be able to detect any type of child including null value', function() {
+    tree.addChild(5);
+    tree.addChild('Kaia');
+    tree.addChild(null);
+    expect(tree.contains(7)).to.equal(false);
+    expect(tree.contains(null)).to.equal(true);
+    expect(tree.contains('Kaia')).to.equal(true);
+  });
+
 });

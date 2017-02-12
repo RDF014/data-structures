@@ -28,6 +28,10 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.contains(8)).to.equal(false);
   });
 
+  it('should only accept number as an input value', function() {
+    binarySearchTree.insert('six');
+    expect(binarySearchTree.contains('six')).to.equal(false);
+  });
   it('should execute a callback on every value in a tree using "depthFirstLog"', function() {
     var array = [];
     var func = function(value) { array.push(value); };
